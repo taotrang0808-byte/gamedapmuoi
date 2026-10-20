@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đập muỗi - Săn câu hỏi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🦟 ĐẬP MUỖI <span>· SĂN CÂU HỎI</span></div>
+    <div class="toolbar">
+      <button id="soundBtn" class="tool-btn">🔊 Âm thanh: Bật</button>
+      <button id="restartBtn" class="tool-btn">🔄 Chơi lại</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">TIN HỌC 10 · BÀI 18</p>
+        <h1>Đập muỗi, săn kiến thức!</h1>
+        <p>Đập muỗi để nhận câu hỏi. Trả lời đúng để chứng minh bạn là cao thủ Python! 😎</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>Đã hoàn thành</span><strong id="doneCount">0/20</strong></div>
+        <div class="stat"><span>Thời gian</span><strong><span id="timeLeft">15</span>s</strong></div>
+      </div>
+    </section>
+
+    <section class="progress-wrap">
+      <div class="progress-track"><div id="progressBar"></div></div>
+    </section>
+
+    <section class="game">
+      <div class="game-heading">
+        <div><span class="live-dot"></span> KHU VỰC SĂN MUỖI</div>
+        <span id="gameMessage">Muỗi đang bay quanh đây...</span>
+      </div>
+
+      <div id="playfield" class="playfield">
+        <div class="cloud cloud-one">☁️</div>
+        <div class="cloud cloud-two">☁️</div>
+        <div class="sun">☀️</div>
+
+        <div id="player" class="player">
+          <div class="speech" id="speech">Lại đây nào! 😏</div>
+          <div class="person">
+            <div class="hair"></div>
+            <div class="face"><span class="eyes">• •</span><span class="smile">⌣</span></div>
+            <div class="neck"></div>
+            <div class="body">👕</div>
+            <div class="arm"></div>
+          </div>
+          <div id="swatter" class="swatter">
+            <div id="racketFace" class="racket-face">
+              <span id="racketText">SĂN MUỖI!</span>
+              <span id="splat" class="splat hidden">🦟💥</span>
+            </div>
+            <div class="racket-handle"></div>
+          </div>
+        </div>
+
+        <div id="hitFx" class="hit-fx hidden">TÁCH!</div>
+        <div id="taunt" class="taunt hidden">ĐỐ ANH BẮT ĐƯỢC EM! 😜</div>
+        <div id="winFx" class="win-fx hidden">TRÚNG RỒI HEHE! 😂</div>
+
+        <div id="startOverlay" class="overlay">
+          <div class="start-card">
+            <div class="big-bug">🦟</div>
+            <h2>Sẵn sàng săn muỗi?</h2>
+            <p>Nhấn vào muỗi đang bay để vung gậy và mở câu hỏi.</p>
+            <button id="startBtn" class="primary-btn">🚀 BẮT ĐẦU CHƠI</button>
+          </div>
+        </div>
+
+        <div id="endOverlay" class="overlay hidden">
+          <div class="start-card">
+            <div class="big-bug">🏆</div>
+            <h2>Hoàn thành thử thách!</h2>
+            <p id="endText">Bạn đã hoàn thành các câu hỏi.</p>
+            <button id="playAgainBtn" class="primary-btn">🔄 CHƠI LẠI</button>
+          </div>
+        </div>
+      </div>
+      <p class="instruction">💡 Mẹo: Nhấn trực tiếp vào con muỗi. Mỗi con muỗi tương ứng với một câu hỏi.</p>
+    </section>
+  </main>
+
+  <div id="questionModal" class="modal hidden">
+    <div class="question-card">
+      <div class="question-top">
+        <span id="questionBadge">CÂU 01/20</span>
+        <button id="closeModalBtn" class="close-btn" aria-label="Đóng">✕</button>
+      </div>
+      <div class="timer-line"><div id="timerBar"></div></div>
+      <div class="question-icon">🏓</div>
+      <p class="question-label">CÂU HỎI TRÊN MẶT GẬY</p>
+      <h2 id="questionText">Câu hỏi xuất hiện ở đây</h2>
+      <div id="answerList" class="answers"></div>
+      <div id="feedback" class="feedback hidden"></div>
+      <p id="answerHint" class="answer-hint">Chọn một đáp án đúng nhất nhé!</p>
+      <button id="nextBtn" class="primary-btn hidden">TIẾP TỤC SĂN MUỖI →</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
